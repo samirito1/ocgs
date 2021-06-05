@@ -13,25 +13,25 @@ $user = new UserType($db);
 $http = new HttpResponse();
 
 
-// if ($_SERVER['REQUEST_METHOD'] !== 'OPTIONS') {
-// if (!isset($_SERVER['PHP_AUTH_USER']) && !isset($_SERVER['PHP_AUTH_PW'])) {
-//     $http->notAuthorized("You must authenticate yourself before you can use our REST API services");
-//     exit();
-// } else {
-//     $username = $_SERVER['PHP_AUTH_USER'];
-//     $password = $_SERVER['PHP_AUTH_PW'];
-//    // $pass = md5($password);
-//     $query = "SELECT * FROM users WHERE username = ?";
-//     $results = $db->fetchOne($query, $username);
-
-//     if ($results === 0 || $results['password'] !== $password) {
-//         $http->notAuthorized("You provided wrong credentials");
-//         exit();
-//     } else {
-//         $user_id = $results['id'];
-//     }
-// }
-// }
+if ($_SERVER['REQUEST_METHOD'] !== 'OPTIONS') {
+  if (!isset($_SERVER['PHP_AUTH_USER']) && !isset($_SERVER['PHP_AUTH_PW'])) {
+      $http->notAuthorized("You must authenticate yourself before you can use our REST API services");
+      exit();
+  } else {
+      $email = $_SERVER['PHP_AUTH_USER'];
+      $password = $_SERVER['PHP_AUTH_PW'];
+     // $pass = md5($password);
+      $query = "SELECT * FROM users WHERE email = ?";
+      $results = $db->fetchOne($query, $email);
+  
+      if ($results === 0 || $results['password'] !== $password) {
+          $http->notAuthorized("You provided wrong credentials");
+          exit();
+      } else {
+          $user_id = $results['id'];
+      }
+  }
+  }
 // CHECK INCOMING GET REQUESTS
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     if (isset($_GET['id']) && !filter_var($_GET['id'], FILTER_VALIDATE_INT)) {
