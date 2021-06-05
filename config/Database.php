@@ -90,6 +90,15 @@ class Database {
       $stmt->execute([$user_type,$fullname,$email,$mobile,$gender,$id]);
     }
 
+    public function insertservices($query,$service_name, $gfs_code) {
+      $stmt = $this->pdo->prepare($query);
+      $stmt->execute([$service_name, $gfs_code]);
+    }
+
+    public function updateservices( $query,$service_name, $gfs_code,$id) {
+      $stmt = $this->pdo->prepare($query);
+      $stmt->execute([$service_name, $gfs_code,$id]);
+    }
 
 
 }
