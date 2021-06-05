@@ -46,7 +46,7 @@ class Users {
     public function insertUser($parameters) {
         $query = "INSERT INTO users (user_type,fullname,email,password,user_status,created_date,mobile,gender)
         VALUES (?,?,?,?,?,?,?,?)";
-        if (isset($parameters->user_type) && isset($parameters->fullname) && isset($parameters->email) && isset($parameters->mobile) ) && isset($parameters->gender)   ) {
+        if (isset($parameters->user_type) && isset($parameters->fullname) && isset($parameters->email) && isset($parameters->mobile) ) && isset($parameters->gender) ) {
             $user_type = $parameters->user_type;
             $fullname = $parameters->fullname;
             $email = $parameters->email;
