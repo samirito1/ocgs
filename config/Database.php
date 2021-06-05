@@ -69,6 +69,15 @@ class Database {
       $stmt->execute([$name,$id]);
     }
 
+    public function insertUser($query, $user_type,$fullname,$email,$password,$user_status,$created_date,$mobile,$gender) {
+      $stmt = $this->pdo->prepare($query);
+      $stmt->execute([$user_type,$fullname,$email,$password,$user_status,$created_date,$mobile,$gender]);
+    }
+
+    public function updateUser($query, $user_type,$fullname,$email,$mobile,$gender,$id) {
+      $stmt = $this->pdo->prepare($query);
+      $stmt->execute([$user_type,$fullname,$email,$mobile,$gender,$id]);
+    }
 
 
 
