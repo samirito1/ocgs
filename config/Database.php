@@ -2,7 +2,7 @@
 
 class Database {
     // localhost
-    private $hostName = "192.168.162.164:3306";
+    private $hostName = "localhost";
     private $dbname = "ocgs";
     private $username = "root";
     private $password = "ocgs";
