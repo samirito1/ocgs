@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $http->badRequest("Please an id is required to make a PUT request");
     exit();
   }
-  $query = "SELECT * FROM userType WHERE id = ?";
+  $query = "SELECT * FROM user_type WHERE id = ?";
   $results = $db->fetchOne($query, $userReceived->id);
   if ($results === 0) {
     // Post NOT Found
@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $http->badRequest("No id was provided");
     exit();
   }
-  $query = "SELECT * FROM userType WHERE id = ?";
+  $query = "SELECT * FROM user_type WHERE id = ?";
   $results = $db->fetchOne($query, $idReceived->id);
 
   if ($results === 0) {
