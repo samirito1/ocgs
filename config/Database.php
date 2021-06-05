@@ -58,6 +58,17 @@ class Database {
       }
     }
 
+    public function fetchLoggedUser($query, $email,$password) {
+      $stmt = $this->pdo->prepare($query);
+      $stmt->execute([$email,$password]);
+      $rowCount = $stmt->rowCount();
+      if ($rowCount <= 0) {
+        return 0;
+      }else {
+        return $stmt->fetch();
+      }
+    }
+
 
     public function insertUserType($query, $name) {
       $stmt = $this->pdo->prepare($query);
