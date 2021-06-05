@@ -62,26 +62,29 @@ class Users {
           return -1;
         }
 
-        public function fetchLoggedUser($email,$password) {
-            $query = "SELECT
-            u.id AS user_id,
-            ut.id AS user_type_id,
-            ut.name AS user_type_name,
-            u.fullname,
-            u.email,
-            u.password,
-            u.user_status,
-            u.created_date,
-            u.mobile,
-            u.gender
-            FROM users u
-            LEFT JOIN 
-            user_type ut ON u.user_type =ut.id
-            WHERE u.email = ? AND u.password=?";
-            return $this->db->fetchLoggedUser($query, $email,$password);
-        }
         
     }
+
+    public function fetchLoggedUser($email,$password) {
+        $query = "SELECT
+        u.id AS user_id,
+        ut.id AS user_type_id,
+        ut.name AS user_type_name,
+        u.fullname,
+        u.email,
+        u.password,
+        u.user_status,
+        u.created_date,
+        u.mobile,
+        u.gender
+        FROM users u
+        LEFT JOIN 
+        user_type ut ON u.user_type =ut.id
+        WHERE u.email = ? AND u.password=?";
+        return $this->db->fetchLoggedUser($query, $email,$password);
+    }
+
+    
     public function updateUser($parameters) {
         $query = "UPDATE users SET
         user_type = ?,
