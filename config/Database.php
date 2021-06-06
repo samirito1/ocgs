@@ -2,7 +2,7 @@
 
 class Database {
     // localhost
-    private $hostName = "localhost";
+    private $hostName = "192.168.0.53";
     private $dbname = "ocgs";
     private $username = "root";
     private $password = "";
@@ -95,12 +95,30 @@ class Database {
       $stmt->execute([$service_name, $gfs_code]);
     }
 
-    public function updateservices( $query,$service_name, $gfs_code,$id) {
+    public function updateservices($query,$service_name, $gfs_code,$id) {
       $stmt = $this->pdo->prepare($query);
       $stmt->execute([$service_name, $gfs_code,$id]);
     }
 
+    public function insertBook($query,$name,$description,$price) {
+      $stmt = $this->pdo->prepare($query);
+      $stmt->execute([$name,$description,$price]);
+    }
 
+    public function updateBook($query,$name,$description,$price,$id) {
+      $stmt = $this->pdo->prepare($query);
+      $stmt->execute([$query,$name,$description,$price,$id]);
+    }
+
+    public function insertMap($query,$map_type,$map_category,$paper_size,$price) {
+      $stmt = $this->pdo->prepare($query);
+      $stmt->execute([$query,$map_type,$map_category,$paper_size,$price]);
+    }
+
+    public function updateMap($query,$map_type,$map_category,$paper_size,$price,$id) {
+      $stmt = $this->pdo->prepare($query);
+      $stmt->execute([$query,$map_type,$map_category,$paper_size,$price,$id]);
+    }
 }
 
 ?>
