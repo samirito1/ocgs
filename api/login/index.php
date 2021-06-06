@@ -6,7 +6,7 @@ header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods,X-Requested-With");
 
 require_once "../../config/Database.php";
-require_once "../../models/User.php";
+require_once "../../models/Users.php";
 require_once "../../models/HttpResponse.php";
 
 $db = new Database();
