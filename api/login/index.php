@@ -28,8 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //$query ="SELECT * FROM users WHERE userName =? AND password =?";
     $results = $user->fetchLoggedUser($email,$pass);
     if ($results === 0 ) {
-        $message = "No user ";
-        $message = " with the credentials was found";
+        $message = "No User with the credentials was found";
         $http->notFound($message);
 
     } else {
