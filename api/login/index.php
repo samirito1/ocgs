@@ -10,7 +10,7 @@ require_once "../../models/Users.php";
 require_once "../../models/HttpResponse.php";
 
 $db = new Database();
-$user = new User($db);
+$user = new Users($db);
 $http = new HttpResponse();
 
 
